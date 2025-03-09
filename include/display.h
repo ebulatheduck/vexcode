@@ -15,9 +15,6 @@ typedef struct _button {
     const char *label;
 } button;
 
-// Selected autonomous button
-extern int autonomousSelection;
-
 void displayButtonControls(int index, bool pressed);
 void initButtons(void);
 int findButton(int16_t xpos, int16_t ypos);
