@@ -9,14 +9,14 @@ int autonomousSelection = -1;
 // data structure is defined above. The array size can be extended, so you can
 // have as many buttons as you wish as long as it fits.
 button buttons[] = {
-  {30, 30, 60, 60, false, 0xE00000, 0x00E000, ""},
-  {150, 30, 60, 60, false, 0xE00000, 0x00E000, ""},
-  {270, 30, 60, 60, false, 0xE00000, 0x00E000, ""},
-  {390, 30, 60, 60, false, 0xE00000, 0x00E000, ""},
+  {30, 30, 60, 60, false, 0x64846A, 0x00E000, ""},
+  {150, 30, 60, 60, false, 0x64846A, 0x00E000, ""},
+  {270, 30, 60, 60, false, 0x64846A, 0x00E000, ""},
+  {390, 30, 60, 60, false, 0x64846A, 0x00E000, ""},
   {30, 150, 60, 60, false, 0xE00000, 0x00E000, "RedLeft"},
   {150, 150, 60, 60, false, 0xE00000, 0x00E000, "RedRight"},
-  {270, 150, 60, 60, false, 0xE00000, 0x00E000, "BlueLeft"},
-  {390, 150, 60, 60, false, 0xE00000, 0x00E000, "BlueRight"}
+  {270, 150, 60, 60, false, 0x0000E0, 0x00E000, "BlueLeft"},
+  {390, 150, 60, 60, false, 0x0000E0, 0x00E000, "BlueRight"}
 };
 
 // Draw all buttons
