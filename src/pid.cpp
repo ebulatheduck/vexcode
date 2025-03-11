@@ -63,7 +63,7 @@ void turnPID(double angleTurn) {
       this_thread::sleep_for(10);
     }
 
-    // Tuning data, output to screen
+    // Turning data, output to screen
     turnCount += 1;
     // error = angleTurn - TurnGyroSmart.rotation(degrees);
     derivative = error - prevError;
