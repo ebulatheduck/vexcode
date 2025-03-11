@@ -32,10 +32,7 @@ controller Controller2;
 /*  function is only called once after the V5 has been powered on and        */
 /*  not every time that the robot is disabled.                               */
 /*---------------------------------------------------------------------------*/
-void pre_auton(void) {
-  // All activities that occur before the competition starts
-  // Example: clearing encoders, setting servo positions, ...
-}
+void pre_auton(void) {}
 
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
