@@ -22,7 +22,7 @@ button buttons[] = {
 // Draw all buttons
 void displayButtonControls(int index, bool pressed) {
   color c;
-  Brain.Screen.setPenColor(vex::color(0xe0e0e0));
+  Brain.Screen.setPenColor(color(0xe0e0e0));
 
   for (int i = 0; i < sizeof(buttons) / sizeof(button); i++) {
     if (buttons[i].state) c = buttons[i].onColor;
@@ -44,7 +44,7 @@ void displayButtonControls(int index, bool pressed) {
     Brain.Screen.drawRectangle(
       buttons[i].xpos, buttons[i].ypos,
       buttons[i].width, buttons[i].height,
-      vex::color::transparent
+      color::transparent
     );
 
     // draw label
@@ -71,7 +71,7 @@ int findButton(int16_t xpos, int16_t ypos) {
 
   for (int index = 0; index < nButtons; index++) {
     button *pButton = &buttons[index];
-    
+
     if (
       xpos < pButton -> xpos ||
       xpos > (pButton -> xpos + pButton -> width)
