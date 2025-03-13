@@ -7,11 +7,7 @@
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 
-#include "vex.h"
 #include "main.h"
-#include "display.h"
-#include "controller.h"
-#include "pid.h"
 using namespace vex;
 
 competition Competition;
