@@ -28,18 +28,21 @@ void turnPID(double angleTurn) {
   int loopCount = 0;
 
   while (loopCount < 2) {
-    //  Distance to target in degrees
+    // Distance to target in degrees
     double error = 0;
-    //  Error degree from the last iteration
+    // Error degree from the last iteration
     double prevError = 0;
     // Derivative of the error. The slope between iterations
     double derivative = 0;
-    // Accumulated error after threashold. Summing error
+    // Accumulated error after threshold. Summing error
     double integral = 0;
     // Iterations of the loop. Counter used to exit loop if not converging
     double iter = 0;
 
-    while (false && iter < maxIter) {
+    while (
+      fabs(TurnGyroSmart.rotation(degrees) - angleTurn) > turnTolerance &&
+      iter < maxIter
+    ) {
       // Checking if error passes threshold to build the integral
       if (fabs(error) < turnThreshold && error != 0) {
         integral += error;
@@ -57,15 +60,15 @@ void turnPID(double angleTurn) {
         powerDrive = -maxSpeed;
       }
 
-      // LeftDriveSmart.spin(forward, powerDrive, voltageUnits::volt);
-      // RightDriveSmart.spin(forward, -powerDrive, voltageUnits::volt);
+      LeftDriveSmart.spin(forward, powerDrive, voltageUnits::volt);
+      RightDriveSmart.spin(forward, -powerDrive, voltageUnits::volt);
 
       this_thread::sleep_for(10);
     }
 
     // Turning data, output to screen
     turnCount += 1;
-    // error = angleTurn - TurnGyroSmart.rotation(degrees);
+    error = angleTurn - TurnGyroSmart.rotation(degrees);
     derivative = error - prevError;
     Controller1.Screen.clearScreen();
     Controller1.Screen.setCursor(1, 1);
