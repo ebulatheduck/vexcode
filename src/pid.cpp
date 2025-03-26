@@ -1,6 +1,11 @@
 #include "main.h"
 using namespace vex;
 
+void clamp(double* num, double min, double max) {
+  if (*num < min) *num = min;
+  if (*num > max) *num = max;
+}
+
 // Used to count the number of turns for output data only
 int turnCount = 0;
 
@@ -53,11 +58,7 @@ void turnPID(double angleTurn) {
       double powerDrive = error * kP + derivative * kD + integral * kI;
 
       // Capping voltage to max speed
-      if (powerDrive > maxSpeed) {
-        powerDrive = maxSpeed;
-      } else if (powerDrive < -maxSpeed) {
-        powerDrive = -maxSpeed;
-      }
+      clamp(&powerDrive, -maxSpeed, maxSpeed);
 
       LeftDriveSmart.spin(forward, powerDrive, voltageUnits::volt);
       RightDriveSmart.spin(forward, -powerDrive, voltageUnits::volt);
