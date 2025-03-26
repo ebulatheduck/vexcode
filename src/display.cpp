@@ -1,6 +1,4 @@
-#include "vex.h"
 #include "main.h"
-#include "display.h"
 using namespace vex;
 
 // Button array definitions for each software button. The purpose of each button
