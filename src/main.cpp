@@ -7,9 +7,7 @@
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 
-#include "vex.h"
 #include "main.h"
-#include "controller.h"
 using namespace vex;
 
 competition Competition;

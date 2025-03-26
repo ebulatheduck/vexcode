@@ -2,6 +2,7 @@
 #define MAIN_H
 
 #include "vex.h"
+#include "controller.h"
 using namespace vex;
 
 // Global instances of objects
