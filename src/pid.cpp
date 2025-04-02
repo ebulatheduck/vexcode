@@ -63,7 +63,7 @@ void turnPID(double angleTurn) {
       LeftDriveSmart.spin(forward, powerDrive, voltageUnits::volt);
       RightDriveSmart.spin(forward, -powerDrive, voltageUnits::volt);
 
-      this_thread::sleep_for(10);
+      wait(10, msec);
     }
 
     // Turning data, output to screen

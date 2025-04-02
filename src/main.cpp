@@ -106,6 +106,6 @@ int main(void) {
       Brain.Screen.printAt(0, 135, "Cibola Robotics");
     }
 
-    this_thread::sleep_for(10);
+    wait(10, msec);
   }
 }
