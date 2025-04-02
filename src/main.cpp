@@ -74,6 +74,6 @@ int main(void) {
 
   // Prevent main from exiting with an infinite loop
   while (true) {
-    this_thread::sleep_for(10);
+    wait(10, msec);
   }
 }
