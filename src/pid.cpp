@@ -29,9 +29,7 @@ int maxIter = 200;
 
 // Turning Function
 void turnPID(double angleTurn) {
-  int loopCount = 0;
-
-  while (loopCount < 2) {
+  for (int loopCount = 0; loopCount < 2; loopCount++) {
     // Distance to target in degrees
     double error = 0;
     // Error degree from the last iteration
@@ -43,16 +41,21 @@ void turnPID(double angleTurn) {
     // Iterations of the loop. Counter used to exit loop if not converging
     double iter = 0;
 
-    while (
-      fabs(TurnGyroSmart.rotation(degrees) - angleTurn) > turnTolerance &&
-      iter < maxIter
+    for (
+      int iter = 0;
+      iter < maxIter && fabs(TurnGyroSmart.rotation(degrees) - angleTurn) > turnTolerance;
+      iter++
     ) {
+      error = angleTurn - TurnGyroSmart.rotation(degrees);
+
       // Checking if error passes threshold to build the integral
       if (fabs(error) < turnThreshold && error != 0) {
         integral += error;
       } else {
         integral = 0;
       }
+
+      derivative = error - prevError;
 
       // Voltage to use. PID calculation
       double powerDrive = error * kP + derivative * kD + integral * kI;
@@ -63,6 +66,7 @@ void turnPID(double angleTurn) {
       LeftDriveSmart.spin(forward, powerDrive, voltageUnits::volt);
       RightDriveSmart.spin(forward, -powerDrive, voltageUnits::volt);
 
+      prevError = error;
       wait(10, msec);
     }
 
@@ -80,6 +84,5 @@ void turnPID(double angleTurn) {
     Controller1.Screen.newLine();
     Controller1.Screen.print("derivative: %.5f", derivative);
     Controller1.Screen.newLine();
-    loopCount++;
   }
 }
