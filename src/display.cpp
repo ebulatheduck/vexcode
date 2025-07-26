@@ -18,7 +18,7 @@ button buttons[] = {
 int nButtons = sizeof(buttons) / sizeof(button);
 
 // Draw all buttons
-void displayButtonControls(int index, bool pressed) {
+void displayButtons(int index, bool pressed) {
   color c;
   Brain.Screen.setPenColor(color(0xe0e0e0));
 
@@ -66,7 +66,7 @@ void userTouchCallbackPressed() {
   int xpos = Brain.Screen.xPosition();
   int ypos = Brain.Screen.yPosition();
 
-  if ((index = findButton(xpos, ypos)) >= 0) { displayButtonControls(index, true); }
+  if ((index = findButton(xpos, ypos)) >= 0) { displayButtons(index, true); }
 }
 
 // Screen has been released
@@ -79,6 +79,6 @@ void userTouchCallbackReleased() {
     // toggle button
     buttons[index].state = !buttons[index].state;
 
-    displayButtonControls(index, false);
+    displayButtons(index, false);
   }
 }

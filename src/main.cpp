@@ -92,7 +92,7 @@ int main(void) {
   Brain.Screen.drawRectangle(0, 120, 480, 120);
 
   // Initial button display
-  displayButtonControls(0, false);
+  displayButtons(0, false);
 
   // Run the pre-autonomous function
   pre_auton();

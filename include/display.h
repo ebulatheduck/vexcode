@@ -15,7 +15,7 @@ typedef struct _button {
   const char* label;
 } button;
 
-void displayButtonControls(int index, bool pressed);
+void displayButtons(int index, bool pressed);
 void initButtons(void);
 int findButton(int16_t xpos, int16_t ypos);
 void userTouchCallbackPressed(void);
