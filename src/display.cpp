@@ -46,9 +46,9 @@ int findButton(int16_t xpos, int16_t ypos) {
     button* pButton = &buttons[i];
 
     if (xpos < pButton->xpos || xpos > (pButton->xpos + pButton->width)) continue;
-
     if (ypos < pButton->ypos || ypos > (pButton->ypos + pButton->height)) continue;
 
+    printf("Button %d pressed\n", i);
     return i;
   }
 
@@ -73,7 +73,7 @@ void userTouchCallbackReleased() {
   if ((index = findButton(xpos, ypos)) >= 0) {
     // toggle button
     buttons[index].state = !buttons[index].state;
-
+    printf("Button %d toggled\n", index);
     displayButtons(index, false);
   }
 }

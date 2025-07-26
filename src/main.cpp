@@ -59,7 +59,7 @@ void autonomous(void) {}
 /*---------------------------------------------------------------------------*/
 void usercontrol(void) {
   // Add controller callbacks here
-  Controller1.ButtonRight.pressed(testauton);
+  if (!Competition.isEnabled()) Controller1.ButtonRight.pressed(testauton);
 
   while (true) {
     // This is the main execution loop for the user control program.
@@ -75,10 +75,12 @@ int main(void) {
   // Set up callbacks for autonomous and driver control periods.
   Competition.autonomous(autonomous);
   Competition.drivercontrol(usercontrol);
+  printf("Registered auton and driver control methods\n");
 
   // Set up brain touch callbacks
   Brain.Screen.pressed(userTouchCallbackPressed);
   Brain.Screen.released(userTouchCallbackReleased);
+  printf("Registered brain touch callbacks\n");
 
   // Make nice background
   Brain.Screen.setFillColor(color(0x404040));
@@ -91,8 +93,7 @@ int main(void) {
   // Initial button display
   displayButtons(0, false);
 
-  // Run the pre-autonomous function
-  pre_auton();
+  printf("Ready\n");
 
   // Prevent main from exiting with an infinite loop
   while (true) {
