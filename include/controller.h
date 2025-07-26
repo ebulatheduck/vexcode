@@ -5,5 +5,6 @@
 using namespace vex;
 
 // File for controller callbacks
+extern void testauton(void);
 
 #endif
