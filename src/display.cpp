@@ -1,9 +1,9 @@
 #include "main.h"
 using namespace vex;
 
-// Button array definitions for each software button. The purpose of each button
-// data structure is defined above. The array size can be extended, so you can
-// have as many buttons as you wish as long as it fits.
+// Button array definitions for each software button. The button data structure is defined in
+// `display.h`. The array size can be extended, so you can have as many buttons as you wish as long
+// as they fit on the screen.
 button buttons[] = {
     {30, 30, 60, 60, false, 0x64846A, 0x00E000, ""},
     {150, 30, 60, 60, false, 0x64846A, 0x00E000, ""},
