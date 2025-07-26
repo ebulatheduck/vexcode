@@ -12,8 +12,8 @@ using namespace vex;
 
 competition Competition;
 brain Brain;
-controller Controller1;
-controller Controller2;
+controller Controller1 = controller(primary);
+controller Controller2 = controller(partner);
 
 // fake values, configure later
 motor FrontL = motor(PORT1, ratio18_1, false);
