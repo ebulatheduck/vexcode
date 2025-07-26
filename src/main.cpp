@@ -52,7 +52,7 @@ void autonomous(void) {}
 /*---------------------------------------------------------------------------*/
 void usercontrol(void) {
   // Add controller callbacks here
-  Controller1.ButtonRight.pressed(testauton);
+  if (!Competition.isEnabled()) Controller1.ButtonRight.pressed(testauton);
 
   while (true) {
     // This is the main execution loop for the user control program.
@@ -68,6 +68,7 @@ int main(void) {
   // Set up callbacks for autonomous and driver control periods.
   Competition.autonomous(autonomous);
   Competition.drivercontrol(usercontrol);
+  printf("Registered auton and driver control methods\n");
 
   // Prevent main from exiting with an infinite loop
   while (true) { wait(10, msec); }
