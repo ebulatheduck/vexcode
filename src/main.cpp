@@ -73,7 +73,5 @@ int main(void) {
   Competition.drivercontrol(usercontrol);
 
   // Prevent main from exiting with an infinite loop
-  while (true) {
-    wait(10, msec);
-  }
+  while (true) { wait(10, msec); }
 }

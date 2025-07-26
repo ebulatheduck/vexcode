@@ -1,0 +1,22 @@
+---
+BasedOnStyle: Google
+---
+Language: Cpp
+AlignAfterOpenBracket: BlockIndent
+AllowShortBlocksOnASingleLine: Always
+BinPackArguments: false
+BinPackParameters: OnePerLine
+BreakAfterReturnType: Automatic
+BreakBeforeTernaryOperators: false
+BreakBinaryOperations: OnePerLine
+ColumnLimit: 100
+DerivePointerAlignment: false
+KeepEmptyLines:
+  AtEndOfFile:     true
+  AtStartOfFile:   false
+Macros:
+- repeat(iterations)=for (int iterator = 0; iterator < iterations; iterator++)
+NamespaceIndentation: All
+PointerAlignment: Left
+ReferenceAlignment: Right
+SpaceAfterCStyleCast: true
