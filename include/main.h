@@ -1,10 +1,10 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include "vex.h"
-#include "display.h"
 #include "controller.h"
+#include "display.h"
 #include "pid.h"
+#include "vex.h"
 using namespace vex;
 
 // Global instances of objects

@@ -41,11 +41,9 @@ void turnPID(double angleTurn) {
     // Iterations of the loop. Counter used to exit loop if not converging
     double iter = 0;
 
-    for (
-      int iter = 0;
-      iter < maxIter && fabs(TurnGyroSmart.rotation(degrees) - angleTurn) > turnTolerance;
-      iter++
-    ) {
+    for (int iter = 0;
+         iter < maxIter && fabs(TurnGyroSmart.rotation(degrees) - angleTurn) > turnTolerance;
+         iter++) {
       error = angleTurn - TurnGyroSmart.rotation(degrees);
 
       // Checking if error passes threshold to build the integral

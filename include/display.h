@@ -5,14 +5,14 @@
 using namespace vex;
 
 typedef struct _button {
-    int xpos;
-    int ypos;
-    int width;
-    int height;
-    bool state;
-    color offColor;
-    color onColor;
-    const char *label;
+  int xpos;
+  int ypos;
+  int width;
+  int height;
+  bool state;
+  color offColor;
+  color onColor;
+  const char* label;
 } button;
 
 void displayButtonControls(int index, bool pressed);
