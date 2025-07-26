@@ -40,11 +40,6 @@ void displayButtons(int index, bool pressed) {
   }
 }
 
-// Init button states
-void initButtons() {
-  repeat(nButtons) { buttons[i].state = false; }
-}
-
 // Check if touch is inside button
 int findButton(int16_t xpos, int16_t ypos) {
   repeat(nButtons) {
