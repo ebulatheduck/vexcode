@@ -29,7 +29,7 @@ int maxIter = 200;
 
 // Turning Function
 void turnPID(double angleTurn) {
-  for (int loopCount = 0; loopCount < 2; loopCount++) {
+  repeat(2) {
     // Distance to target in degrees
     double error = 0;
     // Error degree from the last iteration

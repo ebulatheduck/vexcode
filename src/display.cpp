@@ -22,7 +22,7 @@ void displayButtonControls(int index, bool pressed) {
   color c;
   Brain.Screen.setPenColor(color(0xe0e0e0));
 
-  for (int i = 0; i < nButtons; i++) {
+  repeat(nButtons) {
     c = buttons[i].state ? buttons[i].onColor : buttons[i].offColor;
 
     Brain.Screen.setFillColor(c);
@@ -42,19 +42,19 @@ void displayButtonControls(int index, bool pressed) {
 
 // Init button states
 void initButtons() {
-  for (int index = 0; index < nButtons; index++) { buttons[index].state = false; }
+  repeat(nButtons) { buttons[i].state = false; }
 }
 
 // Check if touch is inside button
 int findButton(int16_t xpos, int16_t ypos) {
-  for (int index = 0; index < nButtons; index++) {
-    button* pButton = &buttons[index];
+  repeat(nButtons) {
+    button* pButton = &buttons[i];
 
     if (xpos < pButton->xpos || xpos > (pButton->xpos + pButton->width)) continue;
 
     if (ypos < pButton->ypos || ypos > (pButton->ypos + pButton->height)) continue;
 
-    return index;
+    return i;
   }
 
   return -1;
