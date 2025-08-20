@@ -96,14 +96,12 @@ int main(void) {
   printf("Ready\n");
 
   // Prevent main from exiting with an infinite loop
-  while (true) {
-    if (!Competition.isEnabled()) {
-      Brain.Screen.setFont(fontType::mono40);
-      Brain.Screen.setFillColor(color(0xFFFFFF));
-      Brain.Screen.setPenColor(color(0xc11f27));
-      Brain.Screen.printAt(0, 135, "Cibola Robotics");
-    }
-
-    wait(10, msec);
+  if (!Competition.isEnabled()) {
+    Brain.Screen.setFont(fontType::mono40);
+    Brain.Screen.setFillColor(color(0xFFFFFF));
+    Brain.Screen.setPenColor(color(0xc11f27));
+    Brain.Screen.printAt(0, 135, "Cibola Robotics");
   }
+
+  while (true) { wait(10, msec); }
 }
