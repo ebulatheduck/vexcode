@@ -10,15 +10,6 @@
 #include "main.h"
 using namespace vex;
 
-competition Competition;
-brain Brain;
-controller Controller1 = controller(primary);
-controller Controller2 = controller(partner);
-
-// motor_group LeftDriveSmart = motor_group(NULL, NULL);
-// motor_group RightDriveSmart = motor_group(NULL, NULL);
-// smartdrive Drivetrain = smartdrive(LeftDriveSmart, RightDriveSmart);
-
 /*---------------------------------------------------------------------------*/
 /*                          Pre-Autonomous Functions                         */
 /*                                                                           */
