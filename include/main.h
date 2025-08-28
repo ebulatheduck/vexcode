@@ -1,5 +1,4 @@
-#ifndef MAIN_H
-#define MAIN_H
+#pragma once
 
 #include "controller.h"
 #include "vex.h"
@@ -15,5 +14,3 @@ extern controller Controller2;
 // extern motor_group LeftDriveSmart;
 // extern motor_group RightDriveSmart;
 // extern smartdrive Drivetrain;
-
-#endif
