@@ -1,5 +1,4 @@
-#ifndef DISPLAY_H
-#define DISPLAY_H
+#pragma once
 
 #include "vex.h"
 using namespace vex;
@@ -20,5 +19,3 @@ void initButtons(void);
 int findButton(int16_t xpos, int16_t ypos);
 void userTouchCallbackPressed(void);
 void userTouchCallbackReleased(void);
-
-#endif

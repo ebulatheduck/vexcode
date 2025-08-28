@@ -1,6 +1,3 @@
-#ifndef PID_H
-#define PID_H
+#pragma once
 
 extern void turnPID(double angleTurn);
-
-#endif

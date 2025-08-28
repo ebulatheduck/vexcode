@@ -1,5 +1,4 @@
-#ifndef MAIN_H
-#define MAIN_H
+#pragma once
 
 #include "controller.h"
 #include "display.h"
@@ -23,5 +22,3 @@ extern motor_group LeftDriveSmart;
 extern motor_group RightDriveSmart;
 extern inertial TurnGyroSmart;
 extern smartdrive Drivetrain;
-
-#endif
