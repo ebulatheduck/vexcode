@@ -10,51 +10,6 @@
 #include "main.h"
 using namespace vex;
 
-/*---------------------------------------------------------------------------*/
-/*                          Pre-Autonomous Functions                         */
-/*                                                                           */
-/*  You may want to perform some actions before the competition starts.      */
-/*  Do them in the following function.  You must return from this function   */
-/*  or the autonomous and usercontrol tasks will not be started.  This       */
-/*  function is only called once after the V5 has been powered on and        */
-/*  not every time that the robot is disabled.                               */
-/*---------------------------------------------------------------------------*/
-void pre_auton(void) {}
-
-/*---------------------------------------------------------------------------*/
-/*                                                                           */
-/*                              Autonomous Task                              */
-/*                                                                           */
-/*  This task is used to control your robot during the autonomous phase of   */
-/*  a VEX Competition.                                                       */
-/*                                                                           */
-/*  You must modify the code to add your own robot specific commands here.   */
-/*---------------------------------------------------------------------------*/
-void autonomous(void) {}
-
-/*---------------------------------------------------------------------------*/
-/*                                                                           */
-/*                              User Control Task                            */
-/*                                                                           */
-/*  This task is used to control your robot during the user control phase of */
-/*  a VEX Competition.                                                       */
-/*                                                                           */
-/*  You must modify the code to add your own robot specific commands here.   */
-/*---------------------------------------------------------------------------*/
-void usercontrol(void) {
-  // Add controller callbacks here
-  if (!Competition.isEnabled()) Controller1.ButtonRight.pressed(testauton);
-
-  while (true) {
-    // This is the main execution loop for the user control program.
-    // Each time through the loop your program should update motor + servo
-    // values based on feedback from the joysticks.
-
-    // Sleep the task for a short amount of time to prevent wasted resources.
-    wait(20, msec);
-  }
-}
-
 int main(void) {
   // Set up callbacks for autonomous and driver control periods.
   Competition.autonomous(autonomous);
@@ -65,6 +20,8 @@ int main(void) {
   Brain.Screen.pressed(userTouchCallbackPressed);
   Brain.Screen.released(userTouchCallbackReleased);
   printf("Registered brain touch callbacks\n");
+
+  // thread TrackPosThread(trackPosition);
 
   // Make nice background
   Brain.Screen.setFillColor(color(0x404040));
@@ -79,13 +36,11 @@ int main(void) {
 
   printf("Ready\n");
 
-  // Prevent main from exiting with an infinite loop
-  if (!Competition.isEnabled()) {
-    Brain.Screen.setFont(fontType::mono40);
-    Brain.Screen.setFillColor(color(0xFFFFFF));
-    Brain.Screen.setPenColor(color(0xc11f27));
-    Brain.Screen.printAt(0, 135, "Cibola Robotics");
-  }
+  Brain.Screen.setFont(fontType::mono20);
+  Brain.Screen.setFillColor(color(0xFFFFFF));
+  Brain.Screen.setPenColor(color(0xc11f27));
+  Brain.Screen.printAt(0, 135, "Cibola Robotics");
 
-  while (true) { wait(10, msec); }
+  // Prevent main from exiting with an infinite loop
+  while (true) wait(10, msec);
 }

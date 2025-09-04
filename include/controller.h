@@ -4,4 +4,5 @@
 using namespace vex;
 
 // File for controller callbacks
-extern void testauton(void);
+void usercontrol(void);
+void testauton(void);

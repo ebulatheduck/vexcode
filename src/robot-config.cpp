@@ -3,16 +3,20 @@ using namespace vex;
 
 competition Competition;
 brain Brain;
-controller Controller1 = controller(primary);
-controller Controller2 = controller(partner);
+controller Controller1(primary);
+controller Controller2(partner);
 
 // fake values, configure later
-motor FrontL = motor(PORT1, ratio18_1, false);
-motor BackL = motor(PORT2, ratio18_1, false);
-motor FrontR = motor(PORT3, ratio18_1, false);
-motor BackR = motor(PORT4, ratio18_1, false);
+motor DriveRF(PORT8, ratio6_1, false);
+motor DriveRM(PORT3, ratio6_1, false);
+motor DriveRB(PORT6, ratio6_1, false);
+motor DriveLF(PORT15, ratio6_1, true);
+motor DriveLM(PORT17, ratio6_1, true);
+motor DriveLB(PORT18, ratio6_1, true);
 
-motor_group LeftDriveSmart = motor_group(FrontL, BackL);
-motor_group RightDriveSmart = motor_group(FrontR, BackR);
-inertial TurnGyroSmart = inertial(PORT1);
-smartdrive Drivetrain = smartdrive(LeftDriveSmart, RightDriveSmart, TurnGyroSmart);
+motor_group LeftDriveSmart(DriveLF, DriveLM, DriveLB);
+motor_group RightDriveSmart(DriveRF, DriveRM, DriveRB);
+inertial TurnGyroSmart(PORT1);
+smartdrive Drivetrain(LeftDriveSmart, RightDriveSmart, TurnGyroSmart);
+
+void vexcodeInit(void) {}

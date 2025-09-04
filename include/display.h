@@ -14,6 +14,8 @@ typedef struct _button {
   const char* label;
 } button;
 
+extern button buttons[];
+
 void displayButtons(int index, bool pressed);
 void initButtons(void);
 int findButton(int16_t xpos, int16_t ypos);

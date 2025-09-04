@@ -1,3 +1,3 @@
 #pragma once
 
-extern void turnPID(double angleTurn);
+void turnPID(double angleTurn);

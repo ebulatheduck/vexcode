@@ -1,5 +1,6 @@
 #pragma once
 
+#include "auton.h"
 #include "controller.h"
 #include "display.h"
 #include "pid.h"
