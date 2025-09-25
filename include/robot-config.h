@@ -1,5 +1,7 @@
 // Global instances of objects
 
+using namespace vex;
+
 extern competition Competition;
 extern brain Brain;
 extern controller Controller1;
@@ -14,3 +16,5 @@ extern motor_group LeftDriveSmart;
 extern motor_group RightDriveSmart;
 extern inertial TurnGyroSmart;
 extern smartdrive Drivetrain;
+extern rotation Front;
+extern rotation Right;
