@@ -6,4 +6,3 @@
 #include "pid.h"
 #include "robot-config.h"
 #include "vex.h"
-using namespace vex;
