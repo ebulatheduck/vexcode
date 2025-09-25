@@ -11,6 +11,11 @@
 using namespace vex;
 
 int main(void) {
+  printf(
+      "\033[H"
+      "\033[J"
+  );  // Clear console
+
   // Set up callbacks for autonomous and driver control periods.
   Competition.autonomous(autonomous);
   Competition.drivercontrol(usercontrol);
