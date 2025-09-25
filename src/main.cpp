@@ -26,7 +26,9 @@ int main(void) {
   Brain.Screen.released(userTouchCallbackReleased);
   printf("Registered brain touch callbacks\n");
 
-  // thread TrackPosThread(trackPosition);
+  // initOdometry();
+  thread TrackPosThread(trackPosition);
+  printf("Registered odometry methods\n");
 
   // Make nice background
   Brain.Screen.setFillColor(color(0x404040));
@@ -39,12 +41,12 @@ int main(void) {
   // Initial button display
   displayButtons(0, false);
 
-  printf("Ready\n");
-
   Brain.Screen.setFont(fontType::mono20);
   Brain.Screen.setFillColor(color(0xFFFFFF));
   Brain.Screen.setPenColor(color(0xc11f27));
   Brain.Screen.printAt(0, 135, "Cibola Robotics");
+
+  printf("Ready\n");
 
   // Prevent main from exiting with an infinite loop
   while (true) wait(10, msec);
