@@ -26,7 +26,6 @@ int main(void) {
   Brain.Screen.released(userTouchCallbackReleased);
   printf("Registered brain touch callbacks\n");
 
-  // initOdometry();
   thread TrackPosThread(trackPosition);
   printf("Registered odometry methods\n");
 

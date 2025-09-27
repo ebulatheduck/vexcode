@@ -6,11 +6,9 @@ const double wheelCircumference = M_PI * wheelDiameter;
 
 double absoluteAngle = 0;
 
-void initOdometry() {
+void trackPosition() {
   Right.resetPosition();
   Front.resetPosition();
-}
 
-void trackPosition() {
   while (1) { wait(100, msec); }
 }
