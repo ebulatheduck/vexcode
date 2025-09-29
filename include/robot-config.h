@@ -1,4 +1,5 @@
 // Global instances of objects
+#include "vex.h"
 
 using namespace vex;
 
