@@ -34,6 +34,6 @@ void usercontrol(void) {
 }
 
 void testauton(void) {
-  printf("Autonomous started");
+  printf("Autonomous started\n");
   driveOdom(12, forward, 50, velocityUnits::pct);
 }
