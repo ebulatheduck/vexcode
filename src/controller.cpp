@@ -5,7 +5,7 @@ using namespace vex;
 
 void usercontrol(void) {
   // Add controller callbacks here
-  if (!Competition.isEnabled()) Controller1.ButtonRight.pressed(testauton);
+  Controller1.ButtonRight.pressed(testauton);
 
   while (true) {
     // This is the main execution loop for the user control program.
