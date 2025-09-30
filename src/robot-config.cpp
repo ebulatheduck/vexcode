@@ -8,16 +8,16 @@ controller Controller2(partner);
 
 motor DriveRF(PORT5, ratio6_1, true);
 motor DriveRM(PORT2, ratio6_1, true);
-motor DriveRB(PORT6, ratio6_1, true);
-motor DriveLF(PORT9, ratio6_1, false);
-motor DriveLM(PORT8, ratio6_1, false);
-motor DriveLB(PORT7, ratio6_1, false);
+motor DriveRB(PORT9, ratio6_1, true);
+motor DriveLF(PORT11, ratio6_1, false);
+motor DriveLM(PORT18, ratio6_1, false);
+motor DriveLB(PORT19, ratio6_1, false);
 
 motor_group LeftDriveSmart(DriveLF, DriveLM, DriveLB);
 motor_group RightDriveSmart(DriveRF, DriveRM, DriveRB);
-inertial TurnGyroSmart(PORT1);
+inertial TurnGyroSmart(PORT20);
 smartdrive Drivetrain(LeftDriveSmart, RightDriveSmart, TurnGyroSmart);
-rotation Front(PORT20);
-rotation Right(PORT1);
+rotation Front(PORT1);
+rotation Right(PORT8);
 
 void vexcodeInit(void) {}
