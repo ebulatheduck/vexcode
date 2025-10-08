@@ -19,3 +19,5 @@ extern inertial TurnGyroSmart;
 extern smartdrive Drivetrain;
 extern rotation Front;
 extern rotation Right;
+
+void vexcodeInit(void);

@@ -13,6 +13,9 @@ using namespace vex;
 int main(void) {
   printf("\033[H\033[J");  // Clear console
 
+  vexcodeInit();
+  printf("Initialized devices\n");
+
   // Set up callbacks for autonomous and driver control periods.
   Competition.autonomous(autonomous);
   Competition.drivercontrol(usercontrol);
@@ -23,8 +26,8 @@ int main(void) {
   Brain.Screen.released(userTouchCallbackReleased);
   printf("Registered brain touch callbacks\n");
 
-  thread TrackPosThread(trackPosition);
-  printf("Registered odometry methods\n");
+  // thread TrackPosThread(trackPosition);
+  // printf("Registered odometry methods\n");
 
   // Make nice background
   Brain.Screen.setFillColor(color(0x404040));
