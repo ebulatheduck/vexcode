@@ -48,13 +48,26 @@ void driveOdom(double inches, directionType direction, double velocity, velocity
   Front.resetPosition();
   Right.resetPosition();
 
+  printf("Position reset\n");
+
   // Start moving both drive motors forward
   LeftDriveSmart.spin(direction, velocity, units);
   RightDriveSmart.spin(direction, velocity, units);
 
-  while (Front.position(degrees) < targetTicks) { wait(10, msec); }
+  printf("Motors started\n");
+
+  while (Front.position(degrees) + 20 < targetTicks) {
+    Controller1.Screen.setCursor(1, 1);
+    Controller1.Screen.print(Front.position(degrees));
+    if (Controller1.ButtonLeft.pressing()) break;  // manual stop
+    wait(10, msec);
+  }
 
   // Stop the drive motors
-  LeftDriveSmart.stop();
-  RightDriveSmart.stop();
+  LeftDriveSmart.stop(brake);
+  RightDriveSmart.stop(brake);
+
+  printf("Error: %.2f inches\n", (Front.position(degrees) - targetTicks) / ticksPerInch);
+
+  printf("Motors stopped\n");
 }

@@ -22,4 +22,18 @@ rotation Right(PORT1);
 
 motor Intake(PORT20);
 
-void vexcodeInit(void) {}
+void vexcodeInit(void) {
+  Brain.Screen.print("Device initialization...");
+  Brain.Screen.setCursor(2, 1);
+  // calibrate the drivetrain gyro
+  wait(200, msec);
+  TurnGyroSmart.calibrate();
+  Brain.Screen.print("Calibrating Gyro for Drivetrain");
+  // wait for the gyro calibration process to finish
+  waitUntil(!TurnGyroSmart.isCalibrating());
+  // reset the screen now that the calibration is complete
+  Brain.Screen.clearScreen();
+  Brain.Screen.setCursor(1, 1);
+  wait(50, msec);
+  Brain.Screen.clearScreen();
+}

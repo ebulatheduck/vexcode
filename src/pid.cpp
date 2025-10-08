@@ -29,58 +29,57 @@ int maxIter = 200;
 
 // Turning Function
 void turnPID(double angleTurn) {
-  repeat(2) {
-    // Distance to target in degrees
-    double error = 0;
-    // Error degree from the last iteration
-    double prevError = 0;
-    // Derivative of the error. The slope between iterations
-    double derivative = 0;
-    // Accumulated error after threshold. Summing error
-    double integral = 0;
-    // Iterations of the loop. Counter used to exit loop if not converging
-    double iter = 0;
+  // Distance to target in degrees
+  double error = 0;
+  // Error degree from the last iteration
+  double prevError = 0;
+  // Derivative of the error. The slope between iterations
+  double derivative = 0;
+  // Accumulated error after threshold. Summing error
+  double integral = 0;
 
-    for (int iter = 0;
-         iter < maxIter && fabs(TurnGyroSmart.rotation(degrees) - angleTurn) > turnTolerance;
-         iter++) {
-      error = angleTurn - TurnGyroSmart.rotation(degrees);
+  for (int iter = 0;
+       iter < maxIter && fabs(TurnGyroSmart.rotation(degrees) - angleTurn) > turnTolerance;
+       iter++) {
+    error = angleTurn - TurnGyroSmart.rotation(degrees);
 
-      // Checking if error passes threshold to build the integral
-      if (fabs(error) < turnThreshold && error != 0) {
-        integral += error;
-      } else {
-        integral = 0;
-      }
-
-      derivative = error - prevError;
-
-      // Voltage to use. PID calculation
-      double powerDrive = error * kP + derivative * kD + integral * kI;
-
-      // Capping voltage to max speed
-      clamp(&powerDrive, -maxSpeed, maxSpeed);
-
-      LeftDriveSmart.spin(forward, powerDrive, voltageUnits::volt);
-      RightDriveSmart.spin(forward, -powerDrive, voltageUnits::volt);
-
-      prevError = error;
-      wait(10, msec);
+    // Checking if error passes threshold to build the integral
+    if (fabs(error) < turnThreshold && error != 0) {
+      integral += error;
+    } else {
+      integral = 0;
     }
 
-    // Turning data, output to screen
-    turnCount += 1;
-    error = angleTurn - TurnGyroSmart.rotation(degrees);
     derivative = error - prevError;
-    Controller1.Screen.clearScreen();
+
+    // Voltage to use. PID calculation
+    double powerDrive = error * kP + derivative * kD + integral * kI;
+
+    // Capping voltage to max speed
+    clamp(&powerDrive, -maxSpeed, maxSpeed);
+
+    LeftDriveSmart.spin(forward, -powerDrive, voltageUnits::volt);
+    RightDriveSmart.spin(forward, powerDrive, voltageUnits::volt);
+
+    prevError = error;
+
     Controller1.Screen.setCursor(1, 1);
-    Controller1.Screen.print("Turn #: %d", turnCount);
-    Controller1.Screen.setCursor(1, 13);
-    Controller1.Screen.print("iter: %.0f", iter);
-    Controller1.Screen.newLine();
-    Controller1.Screen.print("error: %.5f", error);
-    Controller1.Screen.newLine();
-    Controller1.Screen.print("derivative: %.5f", derivative);
-    Controller1.Screen.newLine();
+    Controller1.Screen.print("%.5f", TurnGyroSmart.rotation(degrees));
+    wait(10, msec);
   }
+
+  // Turning data, output to screen
+  // turnCount += 1;
+  // error = angleTurn - TurnGyroSmart.rotation(degrees);
+  // derivative = error - prevError;
+  // Controller1.Screen.clearScreen();
+  // Controller1.Screen.setCursor(1, 1);
+  // Controller1.Screen.print("Turn #: %d", turnCount);
+  // Controller1.Screen.setCursor(1, 13);
+  // Controller1.Screen.print("iter: %.0f", iter);
+  // Controller1.Screen.newLine();
+  // Controller1.Screen.print("error: %.5f", error);
+  // Controller1.Screen.newLine();
+  // Controller1.Screen.print("derivative: %.5f", derivative);
+  // Controller1.Screen.newLine();
 }
