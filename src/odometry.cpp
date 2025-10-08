@@ -57,8 +57,6 @@ void driveOdom(double inches, directionType direction, double velocity, velocity
   printf("Motors started\n");
 
   while (Front.position(degrees) + 20 < targetTicks) {
-    Controller1.Screen.setCursor(1, 1);
-    Controller1.Screen.print(Front.position(degrees));
     if (Controller1.ButtonLeft.pressing()) break;  // manual stop
     wait(10, msec);
   }
