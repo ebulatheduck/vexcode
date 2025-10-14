@@ -65,6 +65,9 @@ void driveOdom(double inches, directionType direction, double velocity, velocity
   LeftDriveSmart.stop(brake);
   RightDriveSmart.stop(brake);
 
+  Controller1.Screen.setCursor(1, 1);
+  Controller1.Screen.print("%.2fin", (Front.position(degrees) - targetTicks) / ticksPerInch);
+
   printf("Error: %.2f inches\n", (Front.position(degrees) - targetTicks) / ticksPerInch);
 
   printf("Motors stopped\n");
