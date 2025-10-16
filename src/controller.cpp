@@ -2,9 +2,33 @@
 using namespace vex;
 
 // File for controller callbacks
+bool intakeState = false;
+
+void intakeForward(void) {
+  if (!intakeState) {
+    Intake.spin(forward, 100, percent);
+    intakeState = true;
+  } else {
+    Intake.stop();
+    intakeState = false;
+  }
+}
+
+void intakeBackward(void) {
+  if (!intakeState) {
+    Intake.spin(reverse, 100, percent);
+    intakeState = true;
+  } else {
+    Intake.stop();
+    intakeState = false;
+  }
+}
 
 void usercontrol(void) {
   // Add controller callbacks here
+  Controller1.ButtonR1.pressed(intakeForward);
+  Controller1.ButtonR2.pressed(intakeBackward);
+
   Controller1.ButtonRight.pressed(testauton);
 
   while (true) {

@@ -20,4 +20,6 @@ smartdrive Drivetrain(LeftDriveSmart, RightDriveSmart, TurnGyroSmart);
 rotation Front(PORT20);
 rotation Right(PORT1);
 
+motor Intake(PORT20);
+
 void vexcodeInit(void) {}
