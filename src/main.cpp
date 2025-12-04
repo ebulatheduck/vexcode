@@ -9,9 +9,7 @@
 
 #include "vex.h"
 #include "main.h"
-#include "display.h"
 #include "controller.h"
-#include "pid.h"
 using namespace vex;
 
 competition Competition;
@@ -79,33 +77,8 @@ int main(void) {
   Competition.autonomous(autonomous);
   Competition.drivercontrol(usercontrol);
 
-  // Set up brain touch callbacks
-  Brain.Screen.pressed(userTouchCallbackPressed);
-  Brain.Screen.released(userTouchCallbackReleased);
-
-  // Make nice background
-  Brain.Screen.setFillColor(vex::color(0x404040));
-  Brain.Screen.setPenColor(vex::color(0x404040));
-  Brain.Screen.drawRectangle(0, 0, 480, 120);
-  Brain.Screen.setFillColor(vex::color(0x808080));
-  Brain.Screen.setPenColor(vex::color(0x808080));
-  Brain.Screen.drawRectangle(0, 120, 480, 120);
-
-  // Initial button display
-  displayButtonControls(0, false);
-
-  // Run the pre-autonomous function
-  pre_auton();
-
   // Prevent main from exiting with an infinite loop
   while (true) {
-    if (!Competition.isEnabled()) {
-      Brain.Screen.setFont(fontType::mono40);
-      Brain.Screen.setFillColor(vex::color(0xFFFFFF));
-      Brain.Screen.setPenColor(vex::color(0xc11f27));
-      Brain.Screen.printAt(0, 135, "Cibola Robotics");
-    }
-
     this_thread::sleep_for(10);
   }
 }
