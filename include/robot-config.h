@@ -1,5 +1,6 @@
 // Global instances of objects
 #include "vex.h"
+using namespace vex;
 
 extern competition Competition;
 extern brain Brain;
