@@ -16,3 +16,6 @@ motor_group LeftDriveSmart = motor_group(FrontL, BackL);
 motor_group RightDriveSmart = motor_group(FrontR, BackR);
 inertial TurnGyroSmart = inertial(PORT1);
 smartdrive Drivetrain = smartdrive(LeftDriveSmart, RightDriveSmart, TurnGyroSmart);
+
+digital_out ThreeWireA(Brain.ThreeWirePort.A);
+digital_out ThreeWireB(Brain.ThreeWirePort.B);

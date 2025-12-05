@@ -5,10 +5,10 @@ Language: Cpp
 AlignAfterOpenBracket: BlockIndent
 AllowShortBlocksOnASingleLine: Always
 BinPackArguments: false
-BinPackParameters: OnePerLine
+# BinPackParameters: OnePerLine
 BreakAfterReturnType: Automatic
 BreakBeforeTernaryOperators: false
-BreakBinaryOperations: OnePerLine
+# BreakBinaryOperations: OnePerLine
 ColumnLimit: 100
 DerivePointerAlignment: false
 KeepEmptyLines:

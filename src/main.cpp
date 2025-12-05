@@ -3,9 +3,22 @@ using namespace vex;
 
 void autonomous(void) {}
 
+bool a = false, b = false;
 void usercontrol(void) {
   // Add controller callbacks here
   if (!Competition.isEnabled()) Controller1.ButtonRight.pressed(testauton);
+
+  Controller1.ButtonA.pressed([] {
+    a = !a;
+    ThreeWireA.set(a);
+    printf("a%d", a);
+  });
+
+  Controller1.ButtonB.pressed([] {
+    b = !b;
+    ThreeWireA.set(b);
+    printf("b%d", b);
+  });
 
   while (true) {
     // This is the main execution loop for the user control program.

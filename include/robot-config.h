@@ -16,3 +16,6 @@ extern motor_group LeftDriveSmart;
 extern motor_group RightDriveSmart;
 extern inertial TurnGyroSmart;
 extern smartdrive Drivetrain;
+
+extern digital_out ThreeWireA;
+extern digital_out ThreeWireB;
