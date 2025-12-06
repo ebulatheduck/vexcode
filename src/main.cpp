@@ -1,8 +1,6 @@
 #include "main.h"
 using namespace vex;
 
-void pre_auton(void) {}
-
 void autonomous(void) {}
 
 void usercontrol(void) {
