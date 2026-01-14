@@ -21,5 +21,6 @@ extern rotation Front;
 extern rotation Right;
 
 extern motor Intake;
+extern motor Hood;
 
 void vexcodeInit(void);

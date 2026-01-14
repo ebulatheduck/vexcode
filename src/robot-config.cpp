@@ -6,21 +6,22 @@ brain Brain;
 controller Controller1(primary);
 controller Controller2(partner);
 
-motor DriveRF(PORT5, ratio6_1, true);
-motor DriveRM(PORT2, ratio6_1, true);
-motor DriveRB(PORT6, ratio6_1, true);
-motor DriveLF(PORT9, ratio6_1, false);
-motor DriveLM(PORT8, ratio6_1, false);
-motor DriveLB(PORT7, ratio6_1, false);
+motor DriveRF(PORT20, ratio6_1, true);
+motor DriveRM(PORT19, ratio6_1, true);
+motor DriveRB(PORT18, ratio6_1, true);
+motor DriveLF(PORT11, ratio6_1, false);
+motor DriveLM(PORT12, ratio6_1, false);
+motor DriveLB(PORT13, ratio6_1, false);
 
 motor_group LeftDriveSmart(DriveLF, DriveLM, DriveLB);
 motor_group RightDriveSmart(DriveRF, DriveRM, DriveRB);
-inertial TurnGyroSmart(PORT1);
+inertial TurnGyroSmart(PORT15);
 smartdrive Drivetrain(LeftDriveSmart, RightDriveSmart, TurnGyroSmart);
-rotation Front(PORT20);
-rotation Right(PORT1);
+// rotation Front(PORT20);
+// rotation Right(PORT1);
 
-motor Intake(PORT20);
+motor Intake(PORT1);
+motor Hood(PORT2);
 
 void vexcodeInit(void) {
   Brain.Screen.print("Device initialization...");
