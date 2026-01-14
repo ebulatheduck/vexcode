@@ -2,32 +2,45 @@
 using namespace vex;
 
 // File for controller callbacks
-bool intakeState = false;
+
+enum motorState { back, forth, stop };
+motorState intakeState = stop;
 
 void intakeForward(void) {
-  if (!intakeState) {
-    Intake.spin(forward, 100, percent);
-    intakeState = true;
-  } else {
-    Intake.stop();
-    intakeState = false;
-  }
+  Intake.spin(vex::forward, 100, percent);
+  intakeState = forth;
 }
 
 void intakeBackward(void) {
-  if (!intakeState) {
-    Intake.spin(reverse, 100, percent);
-    intakeState = true;
+  Intake.spin(reverse, 100, percent);
+  intakeState = back;
+}
+
+void intakeStop(void) {
+  Intake.stop();
+  intakeState = stop;
+}
+
+void intakeToggleForward(void) {
+  if (intakeState == stop) {
+    intakeForward();
   } else {
-    Intake.stop();
-    intakeState = false;
+    intakeStop();
+  }
+}
+
+void intakeToggleBackward(void) {
+  if (intakeState == stop) {
+    intakeBackward();
+  } else {
+    intakeStop();
   }
 }
 
 void usercontrol(void) {
   // Add controller callbacks here
-  Controller1.ButtonR1.pressed(intakeForward);
-  Controller1.ButtonR2.pressed(intakeBackward);
+  Controller1.ButtonR1.pressed(intakeToggleForward);
+  Controller1.ButtonR2.pressed(intakeToggleBackward);
 
   while (true) {
     // This is the main execution loop for the user control program.
@@ -38,14 +51,14 @@ void usercontrol(void) {
     if (Controller1.ButtonRight.pressing()) testauton();
 
     if (abs(Controller1.Axis3.position(percent)) > 15) {
-      RDriveSpeed = Controller1.Axis3.position(percent);
+      RDriveSpeed = Controller1.Axis3.position(percent) * .8;
     } else {
       RDriveSpeed = 0;
       RightDriveSmart.stop(brake);
     }
 
     if (abs(Controller1.Axis2.position(percent)) > 15) {
-      LDriveSpeed = Controller1.Axis2.position(percent);
+      LDriveSpeed = Controller1.Axis2.position(percent) * .8;
     } else {
       LDriveSpeed = 0;
       LeftDriveSmart.stop(brake);
@@ -61,7 +74,6 @@ void usercontrol(void) {
 
 void testauton(void) {
   printf("Autonomous started\n");
-  driveOdom(12, forward, 25, velocityUnits::pct);
   // turnPID(90);
   printf("Autonomous stopped\n");
 }
