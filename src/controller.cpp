@@ -22,7 +22,7 @@ void intakeStop(void) {
 }
 
 void intakeToggleForward(void) {
-  if (intakeState == stop) {
+  if (intakeState != forth) {
     intakeForward();
   } else {
     intakeStop();
@@ -30,7 +30,7 @@ void intakeToggleForward(void) {
 }
 
 void intakeToggleBackward(void) {
-  if (intakeState == stop) {
+  if (intakeState != back) {
     intakeBackward();
   } else {
     intakeStop();
