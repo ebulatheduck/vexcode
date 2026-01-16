@@ -20,7 +20,9 @@ smartdrive Drivetrain(LeftDriveSmart, RightDriveSmart, TurnGyroSmart);
 // rotation Front(PORT20);
 // rotation Right(PORT1);
 
-motor Intake(PORT1);
+motor Intake1(PORT1);
+motor Intake2(PORT2);
+motor_group Intake(Intake1, Intake2);
 motor Hood(PORT2);
 
 void vexcodeInit(void) {

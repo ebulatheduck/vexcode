@@ -20,7 +20,7 @@ extern smartdrive Drivetrain;
 extern rotation Front;
 extern rotation Right;
 
-extern motor Intake;
+extern motor_group Intake;
 extern motor Hood;
 
 void vexcodeInit(void);
