@@ -48,7 +48,7 @@ void usercontrol(void) {
     // values based on feedback from the joysticks.
     int LDriveSpeed = 0, RDriveSpeed = 0;
 
-    if (Controller1.ButtonRight.pressing()) testauton();
+    if (Controller1.ButtonRight.pressing() && !Competition.isEnabled()) autonomous();
 
     if (abs(Controller1.Axis3.position(percent)) > 15) {
       RDriveSpeed = Controller1.Axis3.position(percent) * .8;
@@ -70,10 +70,4 @@ void usercontrol(void) {
     // Sleep the task for a short amount of time to prevent wasted resources.
     wait(20, msec);
   }
-}
-
-void testauton(void) {
-  printf("Autonomous started\n");
-  // turnPID(90);
-  printf("Autonomous stopped\n");
 }
