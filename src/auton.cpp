@@ -20,6 +20,8 @@ void autonomous(void) {
   bool BlueLeft = buttons[6].state;
   bool BlueRight = buttons[7].state;
 
+  printf("Autonomous started\n");
+
   if (blank1) blank1Auton();
   if (blank2) blank2Auton();
   if (blank3) blank3Auton();
@@ -28,4 +30,6 @@ void autonomous(void) {
   if (RedRight) RedRightAuton();
   if (BlueLeft) BlueLeftAuton();
   if (BlueRight) BlueRightAuton();
+
+  printf("Autonomous stopped\n");
 }
