@@ -37,10 +37,16 @@ void intakeToggleBackward(void) {
   }
 }
 
+void scraperPistonToggle(void) {
+  ThreeWireA.set(!ThreeWireA.value());
+  printf("A %ld", ThreeWireA.value());
+}
+
 void usercontrol(void) {
   // Add controller callbacks here
   Controller1.ButtonR1.pressed(intakeToggleForward);
   Controller1.ButtonR2.pressed(intakeToggleBackward);
+  Controller1.ButtonA.pressed(scraperPistonToggle);
 
   while (true) {
     // This is the main execution loop for the user control program.
@@ -54,14 +60,14 @@ void usercontrol(void) {
       RDriveSpeed = Controller1.Axis3.position(percent) * .8;
     } else {
       RDriveSpeed = 0;
-      RightDriveSmart.stop(brake);
+      // RightDriveSmart.stop(brake);
     }
 
     if (abs(Controller1.Axis2.position(percent)) > 15) {
       LDriveSpeed = Controller1.Axis2.position(percent) * .8;
     } else {
       LDriveSpeed = 0;
-      LeftDriveSmart.stop(brake);
+      // LeftDriveSmart.stop(brake);
     }
 
     LeftDriveSmart.spin(forward, LDriveSpeed, percent);

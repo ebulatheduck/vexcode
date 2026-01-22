@@ -22,5 +22,6 @@ extern rotation Right;
 
 extern motor_group Intake;
 extern motor Hood;
+extern digital_out ThreeWireA;
 
 void vexcodeInit(void);
