@@ -7,7 +7,7 @@ enum motorState { back, forth, stop };
 motorState intakeState = stop;
 
 void intakeForward(void) {
-  Intake.spin(vex::forward, 100, percent);
+  Intake.spin(forward, 100, percent);
   intakeState = forth;
 }
 
