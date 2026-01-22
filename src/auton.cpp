@@ -1,7 +1,7 @@
 #include "main.h"
 using namespace vex;
 
-void blank1Auton() {}
+void blank1Auton() { Drivetrain.driveFor(12, inches, 50, velocityUnits::pct); }
 void blank2Auton() {}
 void blank3Auton() {}
 void blank4Auton() {}
