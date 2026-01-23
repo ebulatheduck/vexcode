@@ -38,8 +38,13 @@ void intakeToggleBackward(void) {
 }
 
 void scraperPistonToggle(void) {
-  ThreeWireA.set(!ThreeWireA.value());
-  printf("A %ld", ThreeWireA.value());
+  Scraper.set(!Scraper.value());
+  printf("Scraper %s", Scraper.value() ? "on" : "off");
+}
+
+void hoodPistonToggle(void) {
+  Hood.set(!Hood.value());
+  printf("Hood %s", Hood.value() ? "on" : "off");
 }
 
 void usercontrol(void) {
@@ -47,6 +52,7 @@ void usercontrol(void) {
   Controller1.ButtonR1.pressed(intakeToggleForward);
   Controller1.ButtonR2.pressed(intakeToggleBackward);
   Controller1.ButtonA.pressed(scraperPistonToggle);
+  Controller1.ButtonB.pressed(hoodPistonToggle);
 
   while (true) {
     // This is the main execution loop for the user control program.

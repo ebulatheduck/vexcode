@@ -23,9 +23,8 @@ smartdrive Drivetrain(LeftDriveSmart, RightDriveSmart, TurnGyroSmart);
 motor Intake1(PORT1);
 motor Intake2(PORT2);
 motor_group Intake(Intake1, Intake2);
-motor Hood(PORT2);
-
-digital_out ThreeWireA(Brain.ThreeWirePort.A);
+digital_out Scraper(Brain.ThreeWirePort.A);
+digital_out Hood(Brain.ThreeWirePort.B);
 
 void vexcodeInit(void) {
   Brain.Screen.print("Device initialization...");
