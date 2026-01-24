@@ -39,12 +39,12 @@ void intakeToggleBackward(void) {
 
 void scraperPistonToggle(void) {
   Scraper.set(!Scraper.value());
-  printf("Scraper %s\n", Scraper.value() ? "on" : "off");
+  // printf("Scraper %s\n", Scraper.value() ? "on" : "off");
 }
 
 void hoodPistonToggle(void) {
   Hood.set(!Hood.value());
-  printf("Hood %s\n", Hood.value() ? "on" : "off");
+  // printf("Hood %s\n", Hood.value() ? "on" : "off");
 }
 
 void usercontrol(void) {
