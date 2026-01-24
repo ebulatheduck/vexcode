@@ -5,8 +5,8 @@ using namespace vex;
 // `display.h`. The array size can be extended, so you can have as many buttons as you wish as long
 // as they fit on the screen.
 button buttons[] = {
-    {30, 30, 60, 60, false, 0x64846A, 0x00E000, ""},
-    {150, 30, 60, 60, false, 0x64846A, 0x00E000, ""},
+    {30, 30, 60, 60, false, 0x64846A, 0x00E000, "forth"},
+    {150, 30, 60, 60, false, 0x64846A, 0x00E000, "scorer"},
     {270, 30, 60, 60, false, 0x64846A, 0x00E000, ""},
     {390, 30, 60, 60, false, 0x64846A, 0x00E000, ""},
     {30, 150, 60, 60, false, 0xE00000, 0x00E000, "RedLeft"},
