@@ -2,7 +2,12 @@
 using namespace vex;
 
 void blank1Auton() { Drivetrain.driveFor(12, inches, 50, velocityUnits::pct); }
-void blank2Auton() {}
+void blank2Auton() {
+  Drivetrain.driveFor(20, inches);
+  intakeForward();
+  wait(2, seconds);
+  intakeStop();
+}
 void blank3Auton() {}
 void blank4Auton() {}
 void RedLeftAuton() {}
