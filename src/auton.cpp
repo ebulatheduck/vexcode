@@ -8,7 +8,18 @@ void blank2Auton() {
   wait(2, seconds);
   intakeStop();
 }
-void blank3Auton() {}
+void blank3Auton() {
+  intakeForward();
+  RightDriveSmart.spin(forward, 100, velocityUnits::pct);
+  wait(0.75, sec);
+  Scraper.set(true);
+  //  RightDriveSmart.stop(brake);
+  //  wait(.5, sec);
+  RightDriveSmart.stop();
+  wait(5, sec);
+  Scraper.set(false);
+  intakeStop();
+}
 void blank4Auton() {}
 void RedLeftAuton() {}
 void RedRightAuton() {}

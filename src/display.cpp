@@ -7,7 +7,7 @@ using namespace vex;
 button buttons[] = {
     {30, 30, 60, 60, false, 0x64846A, 0x00E000, "forth"},
     {150, 30, 60, 60, false, 0x64846A, 0x00E000, "scorer"},
-    {270, 30, 60, 60, false, 0x64846A, 0x00E000, ""},
+    {270, 30, 60, 60, false, 0x64846A, 0x00E000, "skills"},
     {390, 30, 60, 60, false, 0x64846A, 0x00E000, ""},
     {30, 150, 60, 60, false, 0xE00000, 0x00E000, "RedLeft"},
     {150, 150, 60, 60, false, 0xE00000, 0x00E000, "RedRight"},
