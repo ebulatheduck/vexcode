@@ -10,9 +10,9 @@ void clamp(double* num, double min, double max) {
 int turnCount = 0;
 
 // Weighted factor of proportion error
-double kP = .16;
+double kP = .08;
 // Weighted factor of integral error
-double kI = .01;
+double kI = .06;
 // Weighted factor of derivated error
 double kD = 0;
 
@@ -22,10 +22,10 @@ double maxSpeed = 8;
 // The angle difference from eror when integral adjustments turns on
 int turnThreshold = 10;
 // Tolerance for approximating the target angle
-double turnTolerance = .7;
+double turnTolerance = 1;
 
 // Total number of iterations to exit while loop
-int maxIter = 200;
+int maxIter = 100;
 
 // Turning Function
 void turnPID(double angleTurn) {
@@ -38,7 +38,9 @@ void turnPID(double angleTurn) {
   // Accumulated error after threshold. Summing error
   double integral = 0;
 
-  for (int iter = 0;
+  int iter = 0;
+
+  for (iter = 0;
        iter < maxIter && fabs(TurnGyroSmart.rotation(degrees) - angleTurn) > turnTolerance;
        iter++) {
     error = angleTurn - TurnGyroSmart.rotation(degrees);
@@ -68,18 +70,20 @@ void turnPID(double angleTurn) {
     wait(10, msec);
   }
 
+  Drivetrain.stop(brake);
+
   // Turning data, output to screen
-  // turnCount += 1;
-  // error = angleTurn - TurnGyroSmart.rotation(degrees);
-  // derivative = error - prevError;
-  // Controller1.Screen.clearScreen();
-  // Controller1.Screen.setCursor(1, 1);
-  // Controller1.Screen.print("Turn #: %d", turnCount);
-  // Controller1.Screen.setCursor(1, 13);
-  // Controller1.Screen.print("iter: %.0f", iter);
-  // Controller1.Screen.newLine();
-  // Controller1.Screen.print("error: %.5f", error);
-  // Controller1.Screen.newLine();
-  // Controller1.Screen.print("derivative: %.5f", derivative);
-  // Controller1.Screen.newLine();
+  turnCount += 1;
+  error = angleTurn - TurnGyroSmart.rotation(degrees);
+  derivative = error - prevError;
+  Controller1.Screen.clearScreen();
+  Controller1.Screen.setCursor(1, 1);
+  Controller1.Screen.print("Turn #: %d", turnCount);
+  Controller1.Screen.setCursor(1, 13);
+  Controller1.Screen.print("iter: %.0f", iter);
+  Controller1.Screen.newLine();
+  Controller1.Screen.print("error: %.5f", error);
+  Controller1.Screen.newLine();
+  Controller1.Screen.print("derivative: %.5f", derivative);
+  Controller1.Screen.newLine();
 }
