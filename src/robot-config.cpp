@@ -6,7 +6,7 @@ brain Brain;
 controller Controller1(primary);
 controller Controller2(partner);
 
-motor DriveRF(PORT20, ratio6_1, true);
+motor DriveRF(PORT10, ratio6_1, true);
 motor DriveRM(PORT19, ratio6_1, true);
 motor DriveRB(PORT18, ratio6_1, true);
 motor DriveLF(PORT11, ratio6_1, false);
@@ -16,7 +16,7 @@ motor DriveLB(PORT13, ratio6_1, false);
 motor_group LeftDriveSmart(DriveLF, DriveLM, DriveLB);
 motor_group RightDriveSmart(DriveRF, DriveRM, DriveRB);
 inertial TurnGyroSmart(PORT15);
-smartdrive Drivetrain(LeftDriveSmart, RightDriveSmart, TurnGyroSmart);
+smartdrive Drivetrain(LeftDriveSmart, RightDriveSmart, TurnGyroSmart, 299.24, 320, 40, mm, 0.75);
 // rotation Front(PORT20);
 // rotation Right(PORT1);
 
