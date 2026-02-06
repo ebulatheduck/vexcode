@@ -48,11 +48,13 @@ void hoodPistonToggle(void) {
 }
 
 void usercontrol(void) {
+  printf("Driver Control Started\n");
+
   // Add controller callbacks here
   Controller1.ButtonR1.pressed(intakeToggleForward);
   Controller1.ButtonR2.pressed(intakeToggleBackward);
-  Controller1.ButtonA.pressed(scraperPistonToggle);
-  Controller1.ButtonB.pressed(hoodPistonToggle);
+  Controller1.ButtonL1.pressed(scraperPistonToggle);
+  Controller1.ButtonL2.pressed(hoodPistonToggle);
 
   while (true) {
     // This is the main execution loop for the user control program.
@@ -60,7 +62,11 @@ void usercontrol(void) {
     // values based on feedback from the joysticks.
     int LDriveSpeed = 0, RDriveSpeed = 0;
 
-    if (Controller1.ButtonRight.pressing() && !Competition.isEnabled()) autonomous();
+    if (Controller1.ButtonRight.pressing()) autonomous();
+    if (Controller1.ButtonLeft.pressing()) {
+      vexcodeInit();
+      displayButtons(0, false);
+    }
 
     if (abs(Controller1.Axis3.position(percent)) > 15) {
       RDriveSpeed = Controller1.Axis3.position(percent) * .8;
