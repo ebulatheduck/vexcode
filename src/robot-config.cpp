@@ -6,7 +6,7 @@ brain Brain;
 controller Controller1(primary);
 controller Controller2(partner);
 
-motor DriveRF(PORT10, ratio6_1, true);
+motor DriveRF(PORT8, ratio6_1, true);
 motor DriveRM(PORT19, ratio6_1, true);
 motor DriveRB(PORT18, ratio6_1, true);
 motor DriveLF(PORT11, ratio6_1, false);

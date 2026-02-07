@@ -46,8 +46,10 @@ int main(void) {
   Brain.Screen.printAt(0, 135, "Cibola Robotics");
 
   printf("Competition mode %s\n", Competition.isEnabled() ? "enabled" : "disabled");
-  printf("Competition switch %s\n", Competition.isCompetitionSwitch() ? "enabled" : "disabled");
-  printf("Field control %s\n", Competition.isFieldControl() ? "enabled" : "disabled");
+  printf(
+      "Competition switch %s\n", Competition.isCompetitionSwitch() ? "connected" : "disconnected"
+  );
+  printf("Field control %s\n", Competition.isFieldControl() ? "connected" : "disconnected");
 
   printf("Ready\n");
 

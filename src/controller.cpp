@@ -62,8 +62,11 @@ void usercontrol(void) {
     // values based on feedback from the joysticks.
     int LDriveSpeed = 0, RDriveSpeed = 0;
 
-    if (Controller1.ButtonRight.pressing()) autonomous();
-    if (Controller1.ButtonLeft.pressing()) {
+    if (Controller1.ButtonRight.pressing() && !Competition.isCompetitionSwitch() &&
+        !Competition.isFieldControl())
+      autonomous();
+    if (Controller1.ButtonLeft.pressing() && !Competition.isCompetitionSwitch() &&
+        !Competition.isFieldControl()) {
       vexcodeInit();
       displayButtons(0, false);
     }

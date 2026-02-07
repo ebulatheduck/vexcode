@@ -22,7 +22,32 @@ void blank3Auton() {
 }
 void blank4Auton() {}
 void RedLeftAuton() {}
-void RedRightAuton() {}
+void RedRightAuton() {
+  Hood.set(true);
+  Intake.spin(forward, 75, percent);
+  Drivetrain.driveFor(36, inches, 15, velocityUnits::pct);
+  wait(1, sec);
+  turnPID(-80);
+  Drivetrain.driveFor(20, inches, 25, velocityUnits::pct);
+  Intake.spin(reverse, 75, percent);
+  wait(2, sec);
+  Intake.stop();
+  // Drivetrain.driveFor(-8, inches, 25, velocityUnits::pct);
+  // turnPID(115);
+  // Scraper.set(true);
+  // Drivetrain.driveFor(42, inches, 25, velocityUnits::pct);
+  // turnPID(180);
+  // Intake.spin(forward, 75, percent);
+  // Drivetrain.driveFor(20, inches, 25, velocityUnits::pct, false);
+  // Drivetrain.driveFor(5, inches, 50, velocityUnits::pct);
+  // Drivetrain.driveFor(5, inches, 50, velocityUnits::pct);
+  // Intake.stop();
+  // Drivetrain.driveFor(-32, inches, 25, velocityUnits::pct);
+  // Hood.set(false);
+  // Intake.spin(reverse, 75, percent);
+  // wait(2, sec);
+  // Intake.stop();
+}
 void BlueLeftAuton() {}
 void BlueRightAuton() {}
 
