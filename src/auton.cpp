@@ -13,8 +13,8 @@ void blank3Auton() {
   RightDriveSmart.spin(forward, 100, velocityUnits::pct);
   wait(0.75, sec);
   Scraper.set(true);
-  //  RightDriveSmart.stop(brake);
-  //  wait(.5, sec);
+  // RightDriveSmart.stop(brake);
+  // wait(.5, sec);
   RightDriveSmart.stop();
   wait(5, sec);
   Scraper.set(false);
