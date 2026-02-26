@@ -37,15 +37,9 @@ void intakeToggleBackward(void) {
   }
 }
 
-void scraperPistonToggle(void) {
-  Scraper.set(!Scraper.value());
-  // printf("Scraper %s\n", Scraper.value() ? "on" : "off");
-}
-
-void hoodPistonToggle(void) {
-  Hood.set(!Hood.value());
-  // printf("Hood %s\n", Hood.value() ? "on" : "off");
-}
+void scraperPistonToggle(void) { Scraper.set(!Scraper.value()); }
+void hoodPistonToggle(void) { Hood.set(!Hood.value()); }
+void wingPistonToggle(void) { Wing.set(!Wing.value()); }
 
 void usercontrol(void) {
   printf("Driver Control Started\n");
@@ -53,9 +47,11 @@ void usercontrol(void) {
   // Add controller callbacks here
   Controller1.ButtonR1.pressed(intakeToggleForward);
   Controller1.ButtonR2.pressed(intakeToggleBackward);
-  Controller1.ButtonL1.pressed(scraperPistonToggle);
+  Controller1.ButtonL1.pressed(wingPistonToggle);
   Controller1.ButtonL2.pressed(hoodPistonToggle);
-
+  Controller1.ButtonDown.pressed([] { Drivetrain.setStopping(brake); });
+  Controller1.ButtonB.pressed([] { Drivetrain.setStopping(coast); });
+  Controller1.ButtonY.pressed(scraperPistonToggle);
   while (true) {
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
@@ -68,7 +64,7 @@ void usercontrol(void) {
     if (Controller1.ButtonLeft.pressing() && !Competition.isCompetitionSwitch() &&
         !Competition.isFieldControl()) {
       vexcodeInit();
-      displayButtons(0, false);
+      initButtons(0, false);
     }
 
     if (abs(Controller1.Axis3.position(percent)) > 15) {

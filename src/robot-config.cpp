@@ -17,14 +17,15 @@ motor_group LeftDriveSmart(DriveLF, DriveLM, DriveLB);
 motor_group RightDriveSmart(DriveRF, DriveRM, DriveRB);
 inertial TurnGyroSmart(PORT15);
 smartdrive Drivetrain(LeftDriveSmart, RightDriveSmart, TurnGyroSmart, 299.24, 320, 40, mm, 0.75);
-// rotation Front(PORT20);
-// rotation Right(PORT1);
+rotation Front(PORT5);
+rotation Right(60);  // garbage value, unused sensor
 
 motor Intake1(PORT4);
 motor Intake2(PORT2);
 motor_group Intake(Intake1, Intake2);
 digital_out Scraper(Brain.ThreeWirePort.A);
 digital_out Hood(Brain.ThreeWirePort.B);
+digital_out Wing(Brain.ThreeWirePort.C);
 
 void vexcodeInit(void) {
   Brain.Screen.print("Device initialization...");

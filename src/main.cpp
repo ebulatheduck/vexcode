@@ -37,19 +37,11 @@ int main(void) {
   Brain.Screen.setPenColor(color(0x808080));
   Brain.Screen.drawRectangle(0, 120, 480, 120);
 
-  // Initial button display
-  displayButtons(0, false);
+  initButtons(6, false);
 
-  Brain.Screen.setFont(fontType::mono20);
-  Brain.Screen.setFillColor(color(0xFFFFFF));
-  Brain.Screen.setPenColor(color(0xc11f27));
-  Brain.Screen.printAt(0, 135, "Cibola Robotics");
-
-  printf("Competition mode %s\n", Competition.isEnabled() ? "enabled" : "disabled");
-  printf(
-      "Competition switch %s\n", Competition.isCompetitionSwitch() ? "connected" : "disconnected"
-  );
-  printf("Field control %s\n", Competition.isFieldControl() ? "connected" : "disconnected");
+  printf("Competition mode %d\n", Competition.isEnabled());
+  printf("Competition switch %d\n", Competition.isCompetitionSwitch());
+  printf("Field control %d\n", Competition.isFieldControl());
 
   printf("Ready\n");
 

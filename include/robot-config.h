@@ -23,5 +23,6 @@ extern rotation Right;
 extern motor_group Intake;
 extern digital_out Hood;
 extern digital_out Scraper;
+extern digital_out Wing;
 
 void vexcodeInit(void);

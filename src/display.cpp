@@ -77,3 +77,13 @@ void userTouchCallbackReleased() {
     displayButtons(index, false);
   }
 }
+
+void initButtons(int index = 0, bool enabled = false) {
+  if (enabled) buttons[index].state = true;
+  displayButtons(index, enabled);
+
+  Brain.Screen.setFont(fontType::mono20);
+  Brain.Screen.setFillColor(color(0xFFFFFF));
+  Brain.Screen.setPenColor(color(0xc11f27));
+  Brain.Screen.printAt(0, 135, "Cibola Robotics");
+}

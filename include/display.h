@@ -17,7 +17,7 @@ typedef struct _button {
 extern button buttons[];
 
 void displayButtons(int index, bool pressed);
-void initButtons(void);
 int findButton(int16_t xpos, int16_t ypos);
 void userTouchCallbackPressed(void);
 void userTouchCallbackReleased(void);
+void initButtons(int index, bool enabled);
