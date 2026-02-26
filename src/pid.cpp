@@ -25,7 +25,7 @@ int turnThreshold = 10;
 double turnTolerance = 1;
 
 // Total number of iterations to exit while loop
-int maxIter = 100;
+int maxIter = 50;
 
 // Turning Function
 void turnPID(double angleTurn) {

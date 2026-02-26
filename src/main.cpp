@@ -37,7 +37,7 @@ int main(void) {
   Brain.Screen.setPenColor(color(0x808080));
   Brain.Screen.drawRectangle(0, 120, 480, 120);
 
-  initButtons(6, false);
+  initButtons(7, true);
 
   printf("Competition mode %d\n", Competition.isEnabled());
   printf("Competition switch %d\n", Competition.isCompetitionSwitch());

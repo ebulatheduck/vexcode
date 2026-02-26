@@ -48,8 +48,66 @@ void RedRightAuton() {
   // wait(2, sec);
   // Intake.stop();
 }
-void BlueLeftAuton() {}
-void BlueRightAuton() {}
+void BlueLeftAuton() {
+  driveOdom(20, forward, 50, velocityUnits::pct);
+  Scraper.set(true);
+  Hood.set(true);
+  turnPID(-90);
+  intakeForward();
+  Drivetrain.driveFor(16, inches, 25, velocityUnits::pct, false);
+  // wait(1, sec);
+  // Drivetrain.driveFor(-1, inches, 25, velocityUnits::pct);
+  wait(3, sec);
+  intakeStop();
+  Drivetrain.driveFor(-30, inches, 25, velocityUnits::pct);
+  Hood.set(false);
+  Drivetrain.driveFor(-4, inches, 25, velocityUnits::pct);
+  // driveOdom(24, reverse, 25, velocityUnits::pct);
+  intakeForward();
+  wait(3, sec);
+  intakeStop();
+}
+void BlueRightAuton() {
+  Hood.set(true);
+  Intake.spin(forward, 75, percent);
+  Drivetrain.driveFor(36, inches, 15, velocityUnits::pct);
+  wait(1, sec);
+  turnPID(-80);
+  Drivetrain.driveFor(20, inches, 25, velocityUnits::pct);
+  Intake.spin(reverse, 60, percent);
+  wait(2, sec);
+  Intake.stop();
+  // stage 2
+  // Drivetrain.driveFor(-8, inches, 25, velocityUnits::pct);
+  // turnPID(115);
+  // Scraper.set(true);
+  // // Drivetrain.driveFor(42, inches, 25, velocityUnits::pct);
+  // driveOdom(30, forward, 25, velocityUnits::pct);
+
+  // turnPID(160);
+  // Intake.spin(forward, 75, percent);
+  // Drivetrain.driveFor(20, inches, 25, velocityUnits::pct, false);
+  // wait(3, sec);
+  // Intake.stop();
+  // Drivetrain.driveFor(-32, inches, 25, velocityUnits::pct);
+  // Hood.set(false);
+  // Intake.spin(reverse, 75, percent);
+  // wait(2, sec);
+  // Intake.stop();
+
+  // alt stage 2
+  Drivetrain.driveFor(-24, inches, 25, velocityUnits::pct);
+  turnPID(-125);
+  intakeForward();
+  driveOdom(35, forward, 40, velocityUnits::pct);
+  turnPID(-160);
+  intakeStop();
+  Drivetrain.driveFor(-16, inches, 25, velocityUnits::pct);
+  Hood.set(false);
+  intakeForward();
+  wait(2, sec);
+  intakeStop();
+}
 
 void autonomous(void) {
   bool blank1 = buttons[0].state;
