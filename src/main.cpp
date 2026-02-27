@@ -48,3 +48,5 @@ int main(void) {
   // Prevent main from exiting with an infinite loop
   while (true) wait(10, msec);
 }
+
+bool testMode(void) { return !Competition.isCompetitionSwitch() && !Competition.isFieldControl(); }
