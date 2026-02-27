@@ -7,3 +7,5 @@
 #include "pid.h"
 #include "robot-config.h"
 #include "vex.h"
+
+bool testMode(void);
