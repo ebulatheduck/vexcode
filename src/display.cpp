@@ -8,7 +8,7 @@ button buttons[] = {
     {30, 30, 60, 60, false, 0x64846A, 0x00E000, "forth"},
     {150, 30, 60, 60, false, 0x64846A, 0x00E000, "scorer"},
     {270, 30, 60, 60, false, 0x64846A, 0x00E000, "skills"},
-    {390, 30, 60, 60, false, 0x64846A, 0x00E000, ""},
+    {390, 30, 60, 60, false, 0x64846A, 0x00E000, "skills2"},
     {30, 150, 60, 60, false, 0xE00000, 0x00E000, "RedLeft"},
     {150, 150, 60, 60, false, 0xE00000, 0x00E000, "RedRight"},
     {270, 150, 60, 60, false, 0x0000E0, 0x00E000, "BlueLeft"},
@@ -79,6 +79,14 @@ void userTouchCallbackReleased() {
 }
 
 void initButtons(int index = 0, bool enabled = false) {
+  // Make nice background
+  Brain.Screen.setFillColor(color(0x404040));
+  Brain.Screen.setPenColor(color(0x404040));
+  Brain.Screen.drawRectangle(0, 0, 480, 120);
+  Brain.Screen.setFillColor(color(0x808080));
+  Brain.Screen.setPenColor(color(0x808080));
+  Brain.Screen.drawRectangle(0, 120, 480, 120);
+
   if (enabled) buttons[index].state = true;
   displayButtons(index, enabled);
 

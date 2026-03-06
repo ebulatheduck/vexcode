@@ -29,15 +29,7 @@ int main(void) {
   // thread TrackPosThread(trackPosition);
   // printf("Registered odometry methods\n");
 
-  // Make nice background
-  Brain.Screen.setFillColor(color(0x404040));
-  Brain.Screen.setPenColor(color(0x404040));
-  Brain.Screen.drawRectangle(0, 0, 480, 120);
-  Brain.Screen.setFillColor(color(0x808080));
-  Brain.Screen.setPenColor(color(0x808080));
-  Brain.Screen.drawRectangle(0, 120, 480, 120);
-
-  initButtons(7, true);
+  initButtons(3, true);
 
   printf("Competition mode %d\n", Competition.isEnabled());
   printf("Competition switch %d\n", Competition.isCompetitionSwitch());
