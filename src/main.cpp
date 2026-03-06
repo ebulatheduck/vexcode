@@ -29,7 +29,7 @@ int main(void) {
   // thread TrackPosThread(trackPosition);
   // printf("Registered odometry methods\n");
 
-  initButtons(6, false);
+  initButtons(6, testMode());
 
   printf("Competition mode %d\n", Competition.isEnabled());
   printf("Competition switch %d\n", Competition.isCompetitionSwitch());
