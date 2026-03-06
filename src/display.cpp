@@ -79,7 +79,15 @@ void userTouchCallbackReleased() {
 }
 
 void initButtons(int index = 0, bool enabled = false) {
-  if (enabled) buttons[index].state = true;
+  // Make nice background
+  Brain.Screen.setFillColor(color(0x404040));
+  Brain.Screen.setPenColor(color(0x404040));
+  Brain.Screen.drawRectangle(0, 0, 480, 120);
+  Brain.Screen.setFillColor(color(0x808080));
+  Brain.Screen.setPenColor(color(0x808080));
+  Brain.Screen.drawRectangle(0, 120, 480, 120);
+
+  buttons[index].state = enabled;
   displayButtons(index, enabled);
 
   Brain.Screen.setFont(fontType::mono20);
