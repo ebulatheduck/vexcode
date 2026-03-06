@@ -19,6 +19,7 @@ extern inertial TurnGyroSmart;
 extern smartdrive Drivetrain;
 extern rotation Front;
 extern rotation Right;
+extern distance Distance;
 
 extern motor_group Intake;
 extern digital_out Hood;

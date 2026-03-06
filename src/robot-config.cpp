@@ -17,8 +17,9 @@ motor_group LeftDriveSmart(DriveLF, DriveLM, DriveLB);
 motor_group RightDriveSmart(DriveRF, DriveRM, DriveRB);
 inertial TurnGyroSmart(PORT15);
 smartdrive Drivetrain(LeftDriveSmart, RightDriveSmart, TurnGyroSmart, 299.24, 320, 40, mm, 0.75);
-rotation Front(PORT5);
+rotation Front(PORT9);
 rotation Right(60);  // garbage value, unused sensor
+distance Distance(PORT3);
 
 motor Intake1(PORT4);
 motor Intake2(PORT2);
