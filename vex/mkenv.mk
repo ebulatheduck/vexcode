@@ -70,7 +70,7 @@ DEFINES = -DVexV5
 
 # platform specific macros
 ifeq ($(OS),Windows_NT)
-$(info windows build for platform $(PLATFORM))
+$(info windows build for platform $(PLATFORM) at $(shell time /t))
 SHELL = cmd.exe
 MKDIR = md "$(@D)" 2> nul || :
 RMDIR = rmdir /S /Q
