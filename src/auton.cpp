@@ -1,6 +1,20 @@
 #include "main.h"
 using namespace vex;
 
+void driveDistance(directionType direction, double distance, distanceUnits units) {
+  Drivetrain.drive(direction, 25, velocityUnits::pct);
+  do { wait(50, msec); } while (Distance.objectDistance(units) >= distance);
+}
+
+void unMatchLoad(void) {
+  // waitUntil(Distance.objectDistance(distanceUnits::cm) <= 22);
+  driveDistance(forward, 22, distanceUnits::cm);
+  Drivetrain.stop(brake);
+  wait(1.5, sec);
+  Drivetrain.driveFor(-.5, inches, 25, velocityUnits::pct);
+  wait(1.5, sec);
+}
+
 void blank1Auton() { Drivetrain.driveFor(12, inches, 50, velocityUnits::pct); }
 void blank2Auton() {
   Drivetrain.driveFor(20, inches);
@@ -20,7 +34,47 @@ void blank3Auton() {
   Scraper.set(false);
   intakeStop();
 }
-void blank4Auton() {}
+void blank4Auton() {
+  Scraper.set(true);
+  Hood.set(true);
+  // driveOdom(6, forward, 25, velocityUnits::pct);
+  // turnPID(90);
+  driveOdom(34, forward, 25, velocityUnits::pct);
+  turnPID(90);
+  // Scraper.set(false);
+
+  Intake.spin(forward, 70, velocityUnits::pct);
+  unMatchLoad();
+  Intake.stop();
+
+  // Drivetrain.driveFor(16.5, inches, 25, velocityUnits::pct, false);
+  // wait(1.5, sec);
+  // Drivetrain.driveFor(-.5, inches, 25, velocityUnits::pct);
+  // wait(1.5, sec);
+
+  // Scraper.set(false);
+  // wait(3, sec);
+  // Drivetrain.setStopping(coast);
+  // Drivetrain.driveFor(-16, inches, 25, velocityUnits::pct);
+  Drivetrain.driveFor(-32, inches, 25, velocityUnits::pct);
+  Hood.set(false);
+  Intake.spin(forward, 70, velocityUnits::pct);
+  wait(3, sec);
+  Drivetrain.driveFor(4, inches, 25, velocityUnits::pct);
+
+  turnPID(180);
+  driveOdom(84, forward, 36, velocityUnits::pct);
+  turnPID(90);
+
+  Intake.spin(forward, 70, velocityUnits::pct);
+  Drivetrain.setStopping(brake);
+  unMatchLoad();
+  // Scraper.set(true);
+  // wait(3, sec);
+  Drivetrain.driveFor(-16, inches, 25, velocityUnits::pct);
+  Intake.stop();
+  // Scraper.set(true);
+}
 void RedLeftAuton() {}
 void RedRightAuton() {
   Hood.set(true);
