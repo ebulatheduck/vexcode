@@ -3,16 +3,16 @@ using namespace vex;
 
 void driveDistance(directionType direction, double distance, distanceUnits units) {
   Drivetrain.drive(direction, 25, velocityUnits::pct);
-  do { wait(50, msec); } while (Distance.objectDistance(units) >= distance);
+  do { wait(100, msec); } while (Distance.objectDistance(units) >= distance);
+  Drivetrain.stop(brake);
 }
 
 void unMatchLoad(void) {
   // waitUntil(Distance.objectDistance(distanceUnits::cm) <= 22);
-  driveDistance(forward, 22, distanceUnits::cm);
-  Drivetrain.stop(brake);
+  driveDistance(forward, 19, distanceUnits::cm);
   wait(1.5, sec);
   Drivetrain.driveFor(-.5, inches, 25, velocityUnits::pct);
-  wait(1.5, sec);
+  wait(.5, sec);
 }
 
 void blank1Auton() { Drivetrain.driveFor(12, inches, 50, velocityUnits::pct); }
