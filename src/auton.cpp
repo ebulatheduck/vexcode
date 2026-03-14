@@ -177,6 +177,11 @@ void autonomous(void) {
 
   printf("Autonomous started\n");
 
+  // reset wing
+  Wing.set(true);
+  wait(200, msec);
+  Wing.set(false);
+
   if (blank1) blank1Auton();
   if (blank2) blank2Auton();
   if (blank3) blank3Auton();
