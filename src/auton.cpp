@@ -105,23 +105,34 @@ void RedRightAuton() {
   // Intake.stop();
 }
 void BlueLeftAuton() {
-  driveOdom(20, forward, 50, velocityUnits::pct);
+  driveOdom(20, forward, 40, velocityUnits::pct);
   Scraper.set(true);
   Hood.set(true);
   turnPID(-90);
   intakeForward();
   Drivetrain.driveFor(16, inches, 25, velocityUnits::pct, false);
+  // driveDistance(forward, 19, distanceUnits::cm);
   // wait(1, sec);
   // Drivetrain.driveFor(-1, inches, 25, velocityUnits::pct);
-  wait(3, sec);
+  wait(2, sec);
   intakeStop();
-  Drivetrain.driveFor(-30, inches, 25, velocityUnits::pct);
+  // unMatchLoad();
+  Drivetrain.driveFor(-32, inches, 25, velocityUnits::pct);
   Hood.set(false);
-  Drivetrain.driveFor(-4, inches, 25, velocityUnits::pct);
+  Drivetrain.driveFor(1, inches, 25, velocityUnits::pct);
+  Drivetrain.driveFor(-1, inches, 25, velocityUnits::pct);
   // driveOdom(24, reverse, 25, velocityUnits::pct);
   intakeForward();
   wait(3, sec);
   intakeStop();
+  // Wing.set(false);
+  Drivetrain.driveFor(6, inches, 25, velocityUnits::pct);
+  turnPID(-180);
+  Drivetrain.driveFor(12, inches, 25, velocityUnits::pct);
+  turnPID(-90);
+  // Wing.set(true);
+  Drivetrain.setStopping(brake);
+  Drivetrain.driveFor(-24, inches, 25, velocityUnits::pct);
 }
 void BlueRightAuton() {
   Hood.set(true);
