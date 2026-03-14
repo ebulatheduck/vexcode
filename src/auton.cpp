@@ -39,7 +39,9 @@ void blank4Auton() {
   Hood.set(true);
   // driveOdom(6, forward, 25, velocityUnits::pct);
   // turnPID(90);
-  driveOdom(34, forward, 25, velocityUnits::pct);
+  driveOdom(32, forward, 25, velocityUnits::pct);
+  // wait(1, sec);
+  // driveDistance(forward, 47, distanceUnits::cm);
   turnPID(90);
   // Scraper.set(false);
 
@@ -62,8 +64,8 @@ void blank4Auton() {
   wait(3, sec);
   Drivetrain.driveFor(4, inches, 25, velocityUnits::pct);
 
-  turnPID(180);
-  driveOdom(84, forward, 36, velocityUnits::pct);
+  turnPID(175);
+  driveOdom(72, forward, 36, velocityUnits::pct);
   turnPID(90);
 
   Intake.spin(forward, 70, velocityUnits::pct);
