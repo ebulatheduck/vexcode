@@ -1,18 +1,18 @@
 #include "main.h"
 using namespace vex;
 
-void driveDistance(directionType direction, double distance, distanceUnits units) {
-  Drivetrain.drive(direction, 25, velocityUnits::pct);
+void driveDistance(directionType direction, double distance, distanceUnits units, int speed = 25) {
+  Drivetrain.drive(direction, speed, velocityUnits::pct);
   do { wait(100, msec); } while (Distance.objectDistance(units) >= distance);
   Drivetrain.stop(brake);
 }
 
-void unMatchLoad(void) {
+void unMatchLoad(int speed = 25, double wait1 = 1.5, double wait2 = .5) {
   // waitUntil(Distance.objectDistance(distanceUnits::cm) <= 22);
-  driveDistance(forward, 19, distanceUnits::cm);
-  wait(1.5, sec);
+  driveDistance(forward, 19, distanceUnits::cm, speed);
+  wait(wait1, sec);
   Drivetrain.driveFor(-.5, inches, 25, velocityUnits::pct);
-  wait(.5, sec);
+  wait(wait2, sec);
 }
 
 void blank1Auton() { Drivetrain.driveFor(12, inches, 50, velocityUnits::pct); }
@@ -23,6 +23,7 @@ void blank2Auton() {
   intakeStop();
 }
 void blank3Auton() {
+  Hood.set(true);
   intakeForward();
   RightDriveSmart.spin(forward, 100, velocityUnits::pct);
   wait(0.75, sec);
@@ -105,18 +106,21 @@ void RedRightAuton() {
   // Intake.stop();
 }
 void BlueLeftAuton() {
-  driveOdom(20, forward, 40, velocityUnits::pct);
+  // driveOdom(19.5, forward, 40, velocityUnits::pct);
+  Drivetrain.driveFor(29.5, inches, 40, velocityUnits::pct);
   Scraper.set(true);
   Hood.set(true);
   turnPID(-90);
+  wait(100, msec);
   intakeForward();
-  Drivetrain.driveFor(16, inches, 25, velocityUnits::pct, false);
+  // Drivetrain.driveFor(15, inches, 15, velocityUnits::pct, false);
   // driveDistance(forward, 19, distanceUnits::cm);
   // wait(1, sec);
   // Drivetrain.driveFor(-1, inches, 25, velocityUnits::pct);
-  wait(2, sec);
+  // wait(1.9, sec);
+  unMatchLoad(15, 1);
   intakeStop();
-  // unMatchLoad();
+  turnPID(-91);  // adjust
   Drivetrain.driveFor(-32, inches, 25, velocityUnits::pct);
   Hood.set(false);
   Drivetrain.driveFor(1, inches, 25, velocityUnits::pct);
@@ -128,11 +132,11 @@ void BlueLeftAuton() {
   // Wing.set(false);
   Drivetrain.driveFor(6, inches, 25, velocityUnits::pct);
   turnPID(-180);
-  Drivetrain.driveFor(12, inches, 25, velocityUnits::pct);
+  Drivetrain.driveFor(8, inches, 25, velocityUnits::pct);
   turnPID(-90);
   // Wing.set(true);
   Drivetrain.setStopping(brake);
-  Drivetrain.driveFor(-24, inches, 25, velocityUnits::pct);
+  Drivetrain.driveFor(-30, inches, 25, velocityUnits::pct);
 }
 void BlueRightAuton() {
   Hood.set(true);
