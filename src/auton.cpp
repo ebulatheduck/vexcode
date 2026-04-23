@@ -15,7 +15,7 @@ void unMatchLoad(int speed = 25, double wait1 = 1.5, double wait2 = .5) {
   wait(wait2, sec);
 }
 
-void blank1Auton() { Drivetrain.driveFor(12, inches, 50, velocityUnits::pct); }
+void blank1Auton() { Drivetrain.driveFor(3, inches, 50, velocityUnits::pct); }
 void blank2Auton() {
   Drivetrain.driveFor(20, inches);
   intakeForward();

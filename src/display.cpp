@@ -9,13 +9,13 @@ button buttons[] = {
     {150, 30, 60, 60, false, 0x64846A, 0x00E000, "scorer"},
     {270, 30, 60, 60, false, 0x64846A, 0x00E000, "skills"},
     {390, 30, 60, 60, false, 0x64846A, 0x00E000, "skills2"},
-    {30, 150, 60, 60, false, 0xE00000, 0x00E000, "RedLeft"},
+    {30, 150, 60, 60, false, 0xE00000, 0x00E000, ""},
     {150, 150, 60, 60, false, 0xE00000, 0x00E000, "RedRight"},
     {270, 150, 60, 60, false, 0x0000E0, 0x00E000, "BlueLeft"},
-    {390, 150, 60, 60, false, 0x0000E0, 0x00E000, "BlueRight"}
+    {390, 150, 60, 60, false, 0x0000E0, 0x00E000, ""}
 };
 
-int nButtons = sizeof(buttons) / sizeof(button);
+const int nButtons = sizeof(buttons) / sizeof(button);
 
 // Draw all buttons
 void displayButtons(int index, bool pressed) {

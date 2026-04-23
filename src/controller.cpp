@@ -43,6 +43,7 @@ void wingPistonToggle(void) { Wing.set(!Wing.value()); }
 
 void usercontrol(void) {
   printf("Driver Control Started\n");
+  Drivetrain.setStopping(coast);
 
   // Add controller callbacks here
   Controller1.ButtonR1.pressed(intakeToggleForward);
