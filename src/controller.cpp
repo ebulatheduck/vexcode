@@ -48,7 +48,14 @@ void usercontrol(void) {
     // values based on feedback from the joysticks.
     int LDriveSpeed = 0, RDriveSpeed = 0;
 
-    if (Controller1.ButtonRight.pressing() && !Competition.isEnabled()) autonomous();
+    if (Controller1.ButtonRight.pressing() && !Competition.isCompetitionSwitch() &&
+        !Competition.isFieldControl())
+      autonomous();
+    if (Controller1.ButtonLeft.pressing() && !Competition.isCompetitionSwitch() &&
+        !Competition.isFieldControl()) {
+      vexcodeInit();
+      initButtons(0, false);
+    }
 
     if (abs(Controller1.Axis3.position(percent)) > 15) {
       RDriveSpeed = Controller1.Axis3.position(percent) * .8;
