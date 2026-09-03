@@ -58,14 +58,12 @@ void usercontrol(void) {
       RDriveSpeed = Controller1.Axis3.position(percent) * .8;
     } else {
       RDriveSpeed = 0;
-      RightDriveSmart.stop(brake);
     }
 
     if (abs(Controller1.Axis2.position(percent)) > 15) {
       LDriveSpeed = Controller1.Axis2.position(percent) * .8;
     } else {
       LDriveSpeed = 0;
-      LeftDriveSmart.stop(brake);
     }
 
     LeftDriveSmart.spin(forward, LDriveSpeed, percent);
