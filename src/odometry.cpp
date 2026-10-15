@@ -1,7 +1,7 @@
 #include "main.h"
 using namespace vex;
 
-const double wheelDiameter = 2.00;
+const double wheelDiameter = 2.25;
 const double wheelCircumference = M_PI * wheelDiameter;
 const double ticksPerRev = 360.0;
 const double ticksPerInch = ticksPerRev / wheelCircumference;

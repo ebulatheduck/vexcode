@@ -1,7 +1,7 @@
 #include "main.h"
 using namespace vex;
 
-void blank1Auton() {}
+void blank1Auton() { driveOdom(36, forward, 50, velocityUnits::pct); }
 void blank2Auton() {}
 void blank3Auton() {}
 void blank4Auton() {}
